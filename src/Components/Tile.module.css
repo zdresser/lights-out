@@ -1,0 +1,14 @@
+.on {
+  background-color: red;
+}
+
+.off {
+  background-color: gray;
+}
+
+.tile {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 5px;
+  margin: 5px 5px;
+}

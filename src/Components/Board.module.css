@@ -1,0 +1,8 @@
+.board {
+  background-color: palegoldenrod;
+  width: 70%;
+  margin: 5rem 5rem;
+  padding: 5rem 5rem;
+  display: flex;
+  gap: 5px 5px;
+}
