@@ -1,19 +1,36 @@
 .on {
-  background-color: red;
+  background-color: var(--pink);
+  box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 1.5rem var(--pink),
+    0 0 0.8rem var(--pink), 0 0 2rem var(--pink), inset 0 0 1.3rem var(--pink);
 }
 
 .off {
-  background-color: gray;
+  background-color: var(--light-blue);
 }
 
 .tile {
-  width: 5rem;
-  height: 5rem;
+  width: 3rem;
+  height: 3rem;
+  margin: 0.5rem 0.5rem;
   border-radius: 5px;
-  margin: 5px 5px;
 }
 
 .tile:hover {
   cursor: pointer;
   opacity: 0.8;
+}
+
+@media (min-width: 1024px) {
+  .tile {
+    width: 5rem;
+    height: 5rem;
+    margin: 1rem 1rem;
+  }
+}
+@media (min-width: 720px) {
+  .tile {
+    width: 4.5rem;
+    height: 4.5rem;
+    margin: 0.8rem 0.8rem;
+  }
 }

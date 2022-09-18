@@ -1,10 +1,51 @@
 .board {
-  background-color: palegoldenrod;
-  width: 70%;
-  margin: 5rem 5rem;
-  padding: 5rem 5rem;
+  background-color: var(--dark-blue);
+  width: 100vw;
+  margin: 5rem;
+  padding: 2.5rem 2.5rem;
   display: flex;
-  gap: 5px 5px;
+  flex-direction: column;
+  border-radius: 5%;
   justify-content: center;
   align-items: center;
+}
+.tiles {
+  display: flex;
+  flex-direction: row;
+}
+
+.restart {
+  margin-top: 2.5rem;
+  text-decoration: none;
+  width: 100%;
+  height: 2.5rem;
+  background-color: var(--dark-blue);
+  color: var(--pink);
+  border: 1px solid var(--pink);
+
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.restart:hover {
+  cursor: pointer;
+  background-color: #450eff;
+  color: var(--red);
+  border: 1px solid var(--red);
+}
+.count {
+  margin-bottom: 2.5rem;
+  color: var(--pink);
+}
+
+@media (min-width: 720px) {
+  .restart {
+    width: 15rem;
+  }
+  .board {
+    max-width: 70%;
+    max-height: 70%;
+    margin: 5rem 5rem;
+  }
 }
