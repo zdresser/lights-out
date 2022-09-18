@@ -45,6 +45,7 @@ h1 {
   font-size: 5rem;
   font-family: "Vibur", sans-serif;
   animation: pulsate 0.11s ease-in-out infinite alternate;
+  margin-top: 1.5rem;
 }
 @keyframes pulsate {
   100% {
