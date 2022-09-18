@@ -7,31 +7,28 @@ export default function Board() {
     // { column: 4, row: 1 },
     // { column: 0, row: 3 },
   ]);
+  const [moveCount, setMoveCount] = useState(0);
 
   const handleTileClick = async (column, row) => {
-    console.log(`You clicked column ${column}, row ${row}`);
+    //increment move count
+    setMoveCount((prev) => prev + 1);
     //toggle clicked tile
     let newState = [...boardState];
-
     newState = toggleTile(column, row, newState);
 
     //toggle neighbors
-    debugger;
+
     if (column + 1 < 5) {
       newState = toggleTile(column + 1, row, newState);
-      console.log("1");
     }
     if (column - 1 > -1) {
       newState = toggleTile(column - 1, row, newState);
-      console.log("2");
     }
     if (row + 1 < 5) {
       newState = toggleTile(column, row + 1, newState);
-      console.log("3");
     }
     if (row - 1 > -1) {
       newState = toggleTile(column, row - 1, newState);
-      console.log("4");
     }
     setBoardState(newState);
   };
@@ -51,40 +48,33 @@ export default function Board() {
       //if not in state, add to state
       return [...state, { column: tileColumn, row: tileRow }];
     }
-
-    // if (currentTile) {
-    //   const tileIndex = boardState.findIndex(
-    //     (item) =>
-    //       item.column === currentTile.column && item.row === currentTile.row
-    //   );
-
-    //   setBoardState([
-    //     ...boardState.slice(0, tileIndex),
-    //     ...boardState.slice(tileIndex + 1),
-    //   ]);
-    // } else {
-    //   //if not in state, add to state
-    //   setBoardState([...boardState, { column: tileColumn, row: tileRow }]);
-    // }
   };
-
+  const handleRestartClick = () => {};
   return (
-    <div className={styles.board}>
-      {[...Array(5)].map((tile, col) => (
-        <div key={col}>
-          {[...Array(5)].map((tile, row) => {
-            return (
-              <Tile
-                column={col}
-                row={row}
-                key={shortid.generate()}
-                boardState={boardState}
-                handleTileClick={handleTileClick}
-              />
-            );
-          })}
+    <>
+      <div className={styles.board}>
+        <h3 className={styles.count}>Move Count: {moveCount}</h3>
+        <div className={styles.tiles}>
+          {[...Array(5)].map((tile, col) => (
+            <div key={col}>
+              {[...Array(5)].map((tile, row) => {
+                return (
+                  <Tile
+                    column={col}
+                    row={row}
+                    key={shortid.generate()}
+                    boardState={boardState}
+                    handleTileClick={handleTileClick}
+                  />
+                );
+              })}
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
+        <a href='#' onClick={handleRestartClick} className={styles.restart}>
+          Restart
+        </a>
+      </div>
+    </>
   );
 }
