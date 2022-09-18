@@ -12,6 +12,7 @@
 .tiles {
   display: flex;
   flex-direction: row;
+  gap: 0.5rem;
 }
 
 .restart {
@@ -31,8 +32,8 @@
 .restart:hover {
   cursor: pointer;
   background-color: #450eff;
-  color: var(--red);
-  border: 1px solid var(--red);
+  color: var(--orange);
+  border: 1px solid var(--orange);
 }
 .count {
   margin-bottom: 2.5rem;
@@ -43,9 +44,20 @@
   .restart {
     width: 15rem;
   }
+  .tiles {
+    gap: 0.8rem;
+  }
   .board {
     max-width: 70%;
-    max-height: 70%;
-    margin: 5rem 5rem;
+
+    margin: 2.5rem 2.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .board {
+    max-width: 700px;
+  }
+  .tiles {
+    gap: 1rem;
   }
 }

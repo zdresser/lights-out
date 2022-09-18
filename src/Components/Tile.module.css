@@ -11,7 +11,7 @@
 .tile {
   width: 3rem;
   height: 3rem;
-  margin: 0.5rem 0.5rem;
+  margin: 0.5rem 0;
   border-radius: 5px;
 }
 
@@ -24,13 +24,13 @@
   .tile {
     width: 5rem;
     height: 5rem;
-    margin: 1rem 1rem;
+    margin: 1rem 0;
   }
 }
 @media (min-width: 720px) {
   .tile {
     width: 4.5rem;
     height: 4.5rem;
-    margin: 0.8rem 0.8rem;
+    margin: 0.8rem 0;
   }
 }
