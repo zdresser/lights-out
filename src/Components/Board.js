@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Tile from "./Tile";
 import styles from "./Board.module.css";
 import shortid from "shortid";
+import toggleTile from "../util/toggleTile";
+import getRandomBoardState from "../util/getRandomBoardState";
+import GameOverModal from "./GameOverModal";
+
 export default function Board() {
-  const [boardState, setBoardState] = useState([
-    // { column: 4, row: 1 },
-    // { column: 0, row: 3 },
-  ]);
+  const initialState = getRandomBoardState();
+  const [boardState, setBoardState] = useState(initialState);
   const [moveCount, setMoveCount] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
 
   const handleTileClick = async (column, row) => {
     //increment move count
@@ -30,28 +33,20 @@ export default function Board() {
     if (row - 1 > -1) {
       newState = toggleTile(column, row - 1, newState);
     }
+
+    setBoardState(newState);
+    if (boardState.length === 0) setGameOver(true);
+  };
+
+  const handleRestartClick = () => {
+    setMoveCount(0);
+    const newState = getRandomBoardState();
     setBoardState(newState);
   };
 
-  const toggleTile = (tileColumn, tileRow, state) => {
-    const currentTile = state.find(
-      (item) => item.column === tileColumn && item.row === tileRow
-    );
-    if (currentTile) {
-      const tileIndex = state.findIndex(
-        (item) =>
-          item.column === currentTile.column && item.row === currentTile.row
-      );
-
-      return [...state.slice(0, tileIndex), ...state.slice(tileIndex + 1)];
-    } else {
-      //if not in state, add to state
-      return [...state, { column: tileColumn, row: tileRow }];
-    }
-  };
-  const handleRestartClick = () => {};
   return (
     <>
+      {gameOver && <GameOverModal />}
       <div className={styles.board}>
         <h3 className={styles.count}>Move Count: {moveCount}</h3>
         <div className={styles.tiles}>
