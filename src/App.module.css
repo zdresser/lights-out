@@ -58,6 +58,3 @@ h1 {
       0 0 73px #f09, 0 0 80px #f09, 0 0 94px #f09, 0 0 140px #f09;
   }
 }
-h1 {
-  animation: pulsate 2.5s infinite alternate;
-}

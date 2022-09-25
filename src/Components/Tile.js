@@ -14,7 +14,8 @@ export default function Tile({ column, row, boardState, handleTileClick }) {
   return (
     <div
       className={`${styles.tile} ${colorStyles}`}
-      onClick={() => handleTileClick(column, row)}>
+      onClick={() => handleTileClick(column, row)}
+      data-testid='tile'>
       {" "}
     </div>
   );

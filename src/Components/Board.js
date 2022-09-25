@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Tile from "./Tile";
 import styles from "./Board.module.css";
 import shortid from "shortid";
@@ -6,13 +6,13 @@ import toggleTile from "../util/toggleTile";
 import getRandomBoardState from "../util/getRandomBoardState";
 import GameOverModal from "./GameOverModal";
 
-export default function Board() {
+export default function Board({}) {
   const initialState = getRandomBoardState();
   const [boardState, setBoardState] = useState(initialState);
   const [moveCount, setMoveCount] = useState(0);
   const [gameOver, setGameOver] = useState(false);
 
-  const handleTileClick = async (column, row) => {
+  const handleTileClick = (column, row) => {
     //increment move count
     setMoveCount((prev) => prev + 1);
     //toggle clicked tile
@@ -46,9 +46,16 @@ export default function Board() {
 
   return (
     <>
-      {gameOver && <GameOverModal />}
+      {gameOver && (
+        <GameOverModal
+          setGameOver={setGameOver}
+          handleRestartClick={handleRestartClick}
+          moveCount={moveCount}
+        />
+      )}
       <div className={styles.board}>
-        <h3 className={styles.count}>Move Count: {moveCount}</h3>
+        <p className={styles.instructions}>Try to turn off all the lights.</p>
+        <h2 className={styles.count}>Move Count: {moveCount}</h2>
         <div className={styles.tiles}>
           {[...Array(5)].map((tile, col) => (
             <div key={col}>
@@ -66,9 +73,10 @@ export default function Board() {
             </div>
           ))}
         </div>
-        <a href='#' onClick={handleRestartClick} className={styles.restart}>
+
+        <button onClick={handleRestartClick} className={styles.restart}>
           Restart
-        </a>
+        </button>
       </div>
     </>
   );

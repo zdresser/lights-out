@@ -1,14 +1,12 @@
 export default function toggleTile(tileColumn, tileRow, state) {
-  const currentTile = state.find(
+  //check to see if tile is in state and find index for later step
+  const currentTile = state.findIndex(
     (item) => item.column === tileColumn && item.row === tileRow
   );
-  if (currentTile) {
-    const tileIndex = state.findIndex(
-      (item) =>
-        item.column === currentTile.column && item.row === currentTile.row
-    );
 
-    return [...state.slice(0, tileIndex), ...state.slice(tileIndex + 1)];
+  //if tile's in the state, remove it
+  if (currentTile >= 0) {
+    return [...state.slice(0, currentTile), ...state.slice(currentTile + 1)];
   } else {
     //if not in state, add to state
     return [...state, { column: tileColumn, row: tileRow }];

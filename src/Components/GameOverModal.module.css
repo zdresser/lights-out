@@ -1,0 +1,35 @@
+.modal {
+  position: fixed;
+  top: 25%;
+  background-color: var(--dark-blue);
+  color: var(--pink);
+  border-radius: 5px;
+  border: 5px solid var(--pink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+
+  padding: 5rem 5rem;
+
+  z-index: 10;
+}
+h2 {
+  font-size: 42px;
+}
+.btn {
+  margin-top: 1.5rem;
+  padding: 1.5rem 1.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--pink);
+  font-weight: bold;
+  background-color: var(--dark-blue);
+  border: 2px solid var(--pink);
+  border-radius: 5px;
+}
+.btn:hover {
+  box-shadow: 0 0 50px 15px var(--pink);
+  color: #fff;
+}
