@@ -63,5 +63,5 @@ test("game over modal is absent at game start", () => {
 });
 
 test("game over modal appears to end the game", () => {
-  //I can't think of a way to do this without lifting the all the Board state up into the App component. I'm being lazy about refactoring all that just for a test.
+  //I can't think of a way to do this without lifting the all the Board state up into the App component, and that seems like a bit too much effort at the end of this project.
 });

@@ -4,7 +4,7 @@ This is my take on the 90's game [Lights Out](<https://en.wikipedia.org/wiki/Lig
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Running the app
 
 In the project directory, you can run:
 
@@ -12,9 +12,6 @@ In the project directory, you can run:
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
 ### `npm test`
 
